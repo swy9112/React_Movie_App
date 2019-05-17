@@ -1,0 +1,57 @@
+/* 로딩화면 start */
+// variables
+$size: 100px !default;
+$thickness: 6px !default;
+$base-color: #fff !default;
+$wheel-color: #c30 !default;
+$speed: 800ms !default;
+
+@mixin fullSize {
+  width: 100%;
+  height: 100%;
+}
+
+// styles
+html,
+body {
+  position: relative;
+  @include fullSize;
+}
+
+#root {
+  @include fullSize;
+
+  .loader_bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    @include fullSize;
+    background: #323232;
+    .loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -50px;
+      margin-top: -100px;
+      height: $size;
+      width: $size;
+      border: $thickness solid $base-color;
+      border: {
+        right-color: $wheel-color;
+        top-color: $wheel-color;
+        radius: 100%;
+      }
+      animation: spin $speed infinite linear;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+/* 로딩화면 end */

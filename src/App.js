@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './App.scss'
 import Movie from './Movie';
 
 class App extends Component {
@@ -13,7 +13,7 @@ class App extends Component {
   _renderMovies = () => {
     const movies = this.state.movies.map((movie,index)=> {
       return <Movie title={movie.title} poster={movie.large_cover_image} key={index} />
-    })
+    });
     return movies
   }
 
@@ -21,7 +21,7 @@ class App extends Component {
     const movies = await this._callApi();
     this.setState({
       movies
-    })
+    });
   }
 
   _callApi = () => {
@@ -31,10 +31,18 @@ class App extends Component {
     .catch(err => console.log(err))
   }
 
+  _loadingPage = () => {
+    return (
+      <div className='loader_bg'>
+        <div className='loader'></div>
+      </div>
+    )
+  }
+
   render(){
     return (
       <div className='App'>
-        {this.state.movies ? this._renderMovies() : 'Loading'}
+        {this.state.movies ? this._renderMovies() : this._loadingPage()}
       </div>
     );
   }
