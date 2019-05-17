@@ -4,7 +4,7 @@ import './Movie.css';
 class Movie extends Component {
     render(){
         return (
-            <div>
+            <div className='moiveList'>
                 <MoviePoster poster={this.props.poster} />
                 <MovieTitle title={this.props.title} />
             </div>

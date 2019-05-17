@@ -1,4 +1,3 @@
-/* 로딩화면 start */
 // variables
 $size: 100px !default;
 $thickness: 6px !default;
@@ -18,9 +17,18 @@ body {
   @include fullSize;
 }
 
+.clearFix::after {
+  content:'';
+  clear: both;
+  display: block;
+}
+
 #root {
   @include fullSize;
+  width:70%;
+  margin:auto;
 
+  /* 로딩화면 start */
   .loader_bg {
     position: absolute;
     left: 0;
@@ -44,8 +52,24 @@ body {
       animation: spin $speed infinite linear;
     }
   }
+  /* 로딩화면 end */
+  .moiveList {
+    float:left;
+    width: 30%;
+    height: 700px;
+    padding: 2%;
+    box-sizing: border-box;
+    
+    img {
+      width: 100%;
+    }
+  }
+  /* 영화 리스트 스타일 start */
+
+  /* 영화 리스트 스타일 end */
 }
 
+/* 애니메이션 */
 @keyframes spin {
   from {
     transform: rotate(0deg);
@@ -54,4 +78,3 @@ body {
     transform: rotate(359deg);
   }
 }
-/* 로딩화면 end */

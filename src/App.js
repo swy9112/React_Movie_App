@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.scss'
+import './style/App.scss'
 import Movie from './Movie';
 
 class App extends Component {
@@ -41,7 +41,7 @@ class App extends Component {
 
   render(){
     return (
-      <div className='App'>
+      <div className='App clearFix'>
         {this.state.movies ? this._renderMovies() : this._loadingPage()}
       </div>
     );
