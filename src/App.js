@@ -25,9 +25,9 @@ class App extends Component {
   }
 
   _callApi = () => {
-    return fetch('https://yts.am/api/v2/list_movies.json?sort_by=rating')
+    return fetch('https://yts.am/api/v2/movie_suggestions.json?movie_id=2413')
     .then(potato => potato.json())
-    .then(json => json.data.movies)
+    .then(json => console.log(json))
     .catch(err => console.log(err))
   }
 
@@ -46,6 +46,7 @@ class App extends Component {
       </div>
     );
   }
+
 }
 
 export default App;

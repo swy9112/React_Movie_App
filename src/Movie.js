@@ -12,6 +12,7 @@ class Movie extends Component {
     }
 }
 
+
 function MoviePoster(props){
     return (
         <img src={props.poster} alt=''/>
@@ -19,7 +20,9 @@ function MoviePoster(props){
 }
 function MovieTitle(props){
     return (
-        <h1>{props.title}</h1>
+        <div className='titleArea'>
+            <h1>{props.title}</h1>
+        </div>
     );
 }
 
